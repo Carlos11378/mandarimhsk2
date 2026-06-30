@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#7A0019">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<title>HSK 2 — Atlas Interativo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header id="header">
+  <div class="hdr-left">
+    <span class="hdr-icon">🐉</span>
+    <div class="hdr-title">
+      <h1>HSK 2 · 二级</h1>
+      <p>15 Lições · Vocabulário · Diálogos</p>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <button class="mode-btn active" data-mode="cards" id="btn-cards">🃏</button>
+    <button class="mode-btn" data-mode="quiz" id="btn-quiz">🎯</button>
+    <button class="mode-btn" data-mode="stroke" id="btn-stroke">✍️</button>
+  </div>
+</header>
+
+<!-- ── BARRA DE LIÇÕES (horizontal) ── -->
+<div id="lesson-bar"></div>
+
+<!-- ── CONTEÚDO PRINCIPAL ── -->
+<main id="main">
+
+  <!-- CANVAS ZONE -->
+  <div id="canvas-zone">
+    <canvas id="bg-c"></canvas>
+    <div id="progress"><span id="pct">0%</span></div>
+
+    <!-- CARTÃO 3D -->
+    <div id="card-wrap">
+      <div class="flashcard" id="flashcard">
+        <div class="card-face card-front">
+          <span class="c-tag" id="ctag">L1</span>
+          <span class="c-char" id="cchar">旅游</span>
+          <span class="c-py" id="cpy">lǚyóu</span>
+          <span class="c-hint">👆 Toque para virar</span>
+        </div>
+        <div class="card-face card-back">
+          <span class="c-meaning" id="cmean">viajar</span>
+          <span class="c-py-back" id="cpyb">lǚyóu</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTADOR -->
+    <div id="counter"><span id="ctr">1/12</span></div>
+
+    <!-- NAVEGAÇÃO -->
+    <div id="card-nav">
+      <button class="nav-btn" id="prev-btn">‹</button>
+      <button class="nav-btn" id="next-btn">›</button>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quiz-zone">
+      <div id="qscore">0%</div>
+      <div id="qchar">旅游</div>
+      <div id="qpy">lǚyóu</div>
+      <div id="qopts"></div>
+      <button id="qnext">Próxima →</button>
+    </div>
+
+    <!-- INDICADOR ESCRITA -->
+    <div id="stroke-indicator">✍️ Escreva abaixo</div>
+  </div>
+
+  <!-- ── PAINEL INFERIOR (BOTTOM SHEET) ── -->
+  <div id="bottom-panel">
+    <div id="panel-handle"></div>
+
+    <!-- Abas -->
+    <div id="tabs">
+      <button class="tab active" data-tab="vocab">📖 Lição</button>
+      <button class="tab" data-tab="text">💬 Textos</button>
+      <button class="tab" data-tab="stroke">✍️ Escrever</button>
+      <button class="tab" data-tab="all">🔤 300</button>
+    </div>
+
+    <!-- Conteúdo das abas -->
+    <div id="panel-content">
+
+      <!-- VOCABULÁRIO -->
+      <div class="panel-section active" id="sec-vocab">
+        <div id="lesson-info"></div>
+        <input class="search" id="search-vocab" placeholder="🔍 Buscar na lição..." autocomplete="off">
+        <div id="vocab-list"></div>
+      </div>
+
+      <!-- TEXTOS -->
+      <div class="panel-section" id="sec-text">
+        <div id="text-content"></div>
+      </div>
+
+      <!-- ESCRITA -->
+      <div class="panel-section" id="sec-stroke">
+        <div id="stroke-box">
+          <div id="stroke-char">旅游</div>
+          <div id="stroke-py">lǚyóu</div>
+          <div id="stroke-mean">viajar</div>
+          <div id="stroke-canvas-wrap">
+            <canvas id="stroke-grid" width="220" height="220"></canvas>
+            <canvas id="stroke-canvas" width="220" height="220"></canvas>
+            <div id="stroke-ghost">旅游</div>
+          </div>
+          <div id="stroke-nav">
+            <button class="sbtn" id="stroke-prev">‹</button>
+            <button class="sbtn" id="stroke-clear">🗑️</button>
+            <button class="sbtn" id="stroke-next">›</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TODAS AS 300 -->
+      <div class="panel-section" id="sec-all">
+        <div class="section-label">Todas as 300 palavras</div>
+        <input class="search" id="search-all" placeholder="🔍 Buscar em todas..." autocomplete="off">
+        <div id="all-grid"></div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<script src="index.js"></script>
+</body>
+</html>

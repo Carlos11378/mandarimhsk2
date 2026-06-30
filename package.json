@@ -1,0 +1,26 @@
+{
+  "name": "hsk2-atlas-mobile",
+  "version": "2.0.0",
+  "description": "HSK 2 — Atlas Interativo para celular. 15 lições com cartões, quiz, caligrafia e diálogos.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=index.html"
+  },
+  "keywords": [
+    "hsk",
+    "hsk2",
+    "chinese",
+    "mandarin",
+    "flashcards",
+    "language-learning",
+    "mobile",
+    "pwa"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.3"
+  }
+}
